@@ -56,10 +56,12 @@ public class MainActivity extends ActionBarActivity implements OnClickListener, 
     // This is for selecting an item from the list
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // Get item from ListView
+        String item = (String) parent.getItemAtPosition(position);
+        String text = "You selected item " + position +
+                " value = " + item;
         // Use a toast message to show which item selected
-        String text = "You selected item " + position;
         Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
         toast.show();
-
     }
 }
