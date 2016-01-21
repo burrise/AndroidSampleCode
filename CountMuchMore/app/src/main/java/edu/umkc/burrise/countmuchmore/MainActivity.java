@@ -15,8 +15,8 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/* This app uses the older style Action Bar. As of Android 5.0, the
-   Android Tool bar is the recommended replacement for the Action Bar.
+/* This app uses Android tool bar in AppCompatActivity.
+   The tool bar can also be specified as a view element.
    Ref: https://blog.xamarin.com/android-tips-hello-toolbar-goodbye-action-bar/
         https://www.youtube.com/watch?t=49&v=5Be2mJzP-Uw
  */
