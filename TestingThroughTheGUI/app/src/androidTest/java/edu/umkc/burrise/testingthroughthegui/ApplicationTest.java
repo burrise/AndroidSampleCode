@@ -49,7 +49,7 @@ public class ApplicationTest extends ActivityInstrumentationTestCase2<MainActivi
         });
 
         getInstrumentation().waitForIdleSync();
-        getInstrumentation().sendStringSync("UMKC");
+        getInstrumentation().sendStringSync("UMKC4");
         getInstrumentation().waitForIdleSync();
 
         // TouchUtils handles the sync with the main thread internally
@@ -61,6 +61,6 @@ public class ApplicationTest extends ActivityInstrumentationTestCase2<MainActivi
         getInstrumentation().waitForIdleSync();
 
         // displayed value should e 1 now.
-        assertEquals("label not updated properly","UMKC",displayLabel.getText().toString());
+        assertEquals("label not updated properly","UMKC4",displayLabel.getText().toString());
     }
 }

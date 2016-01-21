@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.app.ActionBar;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,11 +15,12 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/* If you don't mind limiting this app to users running 11 or higher,
-   extend Activity and change the app theme in the Manifest to
-   HoloAppTheme (which is a new one I defined in styles.xml).
+/* This app uses the older style Action Bar. As of Android 5.0, the
+   Android Tool bar is the recommended replacement for the Action Bar.
+   Ref: https://blog.xamarin.com/android-tips-hello-toolbar-goodbye-action-bar/
+        https://www.youtube.com/watch?t=49&v=5Be2mJzP-Uw
  */
-public class MainActivity extends ActionBarActivity implements OnClickListener {
+public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     static final private String TAG = "Count Much More";
 
