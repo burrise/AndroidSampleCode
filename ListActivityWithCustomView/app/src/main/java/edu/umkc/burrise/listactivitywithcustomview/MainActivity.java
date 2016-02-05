@@ -50,7 +50,7 @@ public class MainActivity extends ListActivity  {
                 R.drawable.pizza));
 
         items.add(new LunchItem("Angioplasty",
-                "Artery Plus",
+                "To Go!",
                 R.drawable.angioplasty
         ));
 
