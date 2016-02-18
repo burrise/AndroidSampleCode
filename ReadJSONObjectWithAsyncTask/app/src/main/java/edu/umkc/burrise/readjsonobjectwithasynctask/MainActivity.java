@@ -40,10 +40,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     //    input type of onPostExecute
     private class FetchWeatherTask extends AsyncTask<String, Void, String> {
 
-        // Not sure what the three dots mean? See: http://stackoverflow.com/questions/3158730/java-3-dots-in-parameters?rq=1
+        // String... means the client of this routine can pass
+        //   zero or more string values. They are received
+        //   as an array: parms[0], parms[1], etc.
+        // For more info, see: http://stackoverflow.com/questions/3158730/java-3-dots-in-parameters?rq=1
         protected String doInBackground(String... parms) {
 
-            // parms[0] is first parm, etc.
             OpenWeatherService weatherService = new OpenWeatherService(parms[0]);
             try {
                 String temperature = weatherService.getTemperature();

@@ -4,7 +4,7 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import edu.umkc.burrise.JSON.JSONService;
+import edu.umkc.burrise.Networking.JSONService;
 
 public class OpenWeatherService {
     private String uri;
@@ -12,13 +12,13 @@ public class OpenWeatherService {
 
     // cityName is city,state. For example: Leawood,KS or Kansas%20City,MO
     public OpenWeatherService(String cityName) {
-        uri = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=ume1fdab04f806cbc652a01aed29256fd9kc";
+        uri = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=e1fdab04f806cbc652a01aed29256fd9";
     }
 
     // Throws Exception if there is a problem getting temperature
     public String getTemperature() throws Exception {
         try {
-            JSONObject weatherData = JSONService.getJSONObject(uri);
+            JSONObject weatherData = JSONService.fetchJSONObject(uri);
             Log.i(TAG, weatherData.toString());
             JSONObject mainSection = weatherData.getJSONObject("main");
             String temperature = mainSection.getString("temp");
