@@ -2,34 +2,6 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_b7cb6bad3821e59ac7aeeb9a92d35b8879c53280.jar" />
-    </item>
-    <item
-        jar="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_70edd0e3c794707f5ba327c9f14a692549349a7d.jar" />
-    </item>
-    <item
-        jar="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_2b747fd693047ef6bd4c28c0d184e378f2fba432.jar" />
-    </item>
-    <item
-        jar="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_2627e77d8db7c42e86421934a12ed88605389d86.jar" />
-    </item>
-    <item
         jar="C:\Users\burrise\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
         jumboMode="false"
         revision="23.0.2"
@@ -42,6 +14,34 @@
         revision="23.0.2"
         sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
         <dex dex="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_b5ea89e3546e240b608836d8f1a60894cc00fab5.jar" />
+    </item>
+    <item
+        jar="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_2627e77d8db7c42e86421934a12ed88605389d86.jar" />
+    </item>
+    <item
+        jar="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_2b747fd693047ef6bd4c28c0d184e378f2fba432.jar" />
+    </item>
+    <item
+        jar="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_70edd0e3c794707f5ba327c9f14a692549349a7d.jar" />
+    </item>
+    <item
+        jar="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="C:\Users\burrise\CS449Projects\CountMuchMoreMenuesAndMore\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_b7cb6bad3821e59ac7aeeb9a92d35b8879c53280.jar" />
     </item>
 
 </items>
