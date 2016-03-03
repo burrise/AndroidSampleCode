@@ -48,12 +48,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         Intent takePictureIntent = takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
+        // Performing this check is important because if you call startActivityForResult()
+        //   using an intent that no app can handle, your app will crash.
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             File photoFile = null;
             try {
                 photoFile = getUniqueFileName();
             } catch (IOException ex) {
-                // Error occurred while creating the File
+                // Error occurred while creating the file
                 photoFile = null;
             }
             // Continue only if the File was successfully created
@@ -66,10 +68,19 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     // Generate a unique file name
+    /* Note, if you want the image to be visible to other apps, you should save
+         in a public external directory. The proper directory for shared photos
+         is provided by getExternalStoragePublicDirectory(), with the DIRECTORY_PICTURES
+         argument. The directory provided by this method is shared among all apps.
+     */
     private File getUniqueFileName() throws IOException {
-        // Create an image file name
+        // Create a collision-resistant file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "PHOTO_" + timeStamp;
+        // Note, I should probably be using getExternalFilesDir() here rather than
+        //   getExternalStorageDirectory(). getExternalStorageDirectory() saves to
+        //   the root path to your SD card. Not sure, but it's possible getPackageName()
+        //   creates a directory that is specific to app.
         File storageDir = new File(Environment.getExternalStorageDirectory(), getPackageName());
         if (!storageDir.exists())
             storageDir.mkdir();
@@ -112,13 +123,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
              <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
                      android:maxSdkVersion="18" />
          */
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
 
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bitmap imageBitmap = null;
             try {
+                // Scale the image so it doesn't take up unnecessary space.
                 imageBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.fromFile(mCurrentPhoto));
-                int nh = (int) ( imageBitmap.getHeight() * (512.0 / imageBitmap.getWidth()) );
-                Bitmap scaled = Bitmap.createScaledBitmap(imageBitmap, 512, nh, true);
+                int newHeight = (int) ( imageBitmap.getHeight() * (512.0 / imageBitmap.getWidth()) );
+                Bitmap scaled = Bitmap.createScaledBitmap(imageBitmap, 512, newHeight, true);
                 mImageView.setImageBitmap(scaled);
 
             } catch (IOException e) {
