@@ -99,6 +99,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
                 // Start the CAB using the ActionMode.Callback defined above
                 mActionMode = startActionMode(mActionModeCallback);
+                // Change view state to selected.
+                // I don't think it makes a difference here, but you might
+                //   want for example to change the look of a UI component when
+                //   it is selected.
                 view.setSelected(true);
                 return true;
             }
