@@ -80,9 +80,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         Log.i(TAG, "Starting onCreate...");
         setContentView(R.layout.activity_main);
 
-        // Setup contectual action mode menu
+        // Setup contextual action mode menu
         // Long clicking background of main activity will
-        // bring up a contectual menu. Note, we could have
+        // bring up a contextual menu. Note, we could have
         // done the same for any view component
         // Example:
         //    View countText = findViewById(R.id.count_label);
