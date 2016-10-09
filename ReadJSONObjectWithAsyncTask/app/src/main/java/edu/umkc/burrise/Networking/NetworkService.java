@@ -21,9 +21,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class JSONService {
+public class NetworkService {
 
-    private static final String TAG = JSONService.class.getName();
+    private static final String TAG = NetworkService.class.getName();
 
     public static JSONObject fetchJSONObject(String uri) throws JSONException {
         // Fetch JSON string at uri and convert it to a JSON object

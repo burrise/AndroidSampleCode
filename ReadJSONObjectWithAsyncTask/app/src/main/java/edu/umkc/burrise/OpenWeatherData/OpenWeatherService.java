@@ -4,7 +4,7 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import edu.umkc.burrise.Networking.JSONService;
+import edu.umkc.burrise.Networking.NetworkService;
 
 public class OpenWeatherService {
     private String uri;
@@ -18,7 +18,7 @@ public class OpenWeatherService {
     // Throws Exception if there is a problem getting temperature
     public String getTemperature() throws Exception {
         try {
-            JSONObject weatherData = JSONService.fetchJSONObject(uri);
+            JSONObject weatherData = NetworkService.fetchJSONObject(uri);
             Log.i(TAG, weatherData.toString());
             JSONObject mainSection = weatherData.getJSONObject("main");
             String temperature = mainSection.getString("temp");
