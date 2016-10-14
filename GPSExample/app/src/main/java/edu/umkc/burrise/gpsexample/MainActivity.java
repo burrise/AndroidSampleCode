@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         double latitude = location.getLatitude();
 
         Toast.makeText(getApplicationContext(),
-                "Long " + longitude + " Lat " + latitude, Toast.LENGTH_LONG).show();
+                "Lat " + latitude + " Long " + longitude, Toast.LENGTH_LONG).show();
 
     }
 
