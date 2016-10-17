@@ -113,8 +113,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ContextCompat.checkSelfPermission(this,
                         Manifest.permission.ACCESS_FINE_LOCATION)
                         != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this,
+//                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
+//                    MY_PERMISSIONS_REQUEST_FINE_LOCATION);
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     MY_PERMISSIONS_REQUEST_FINE_LOCATION);
         }
         else {
@@ -158,6 +161,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i(TAG, "Starting onRequestPermissionResult");
         switch (requestCode) {
             case MY_PERMISSIONS_REGISTER_FOR_UPDATES:
+                Log.i(TAG, "grant results length: " + grantResults.length);
+                Log.i(TAG, "grant results [0]: " + grantResults[0]);
+                Log.i(TAG, "grant results [1]: " + grantResults[1]);
                 // Register for updates
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
