@@ -52,6 +52,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.FileInputStream;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, LocationListener {
@@ -117,6 +118,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //@TargetApi(23)
     private void getCurrentLocation() {
+
         try {
             // Example of how to query GPS location.
             LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
