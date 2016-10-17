@@ -68,38 +68,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         View locationButton = findViewById(R.id.button);
-        // This class implements the onClickListener interface.
-        // Passing 'this' to setOnClickListener means the
-        //   onClick method in this class will get called
-        //   when the button is clicked.
         locationButton.setOnClickListener(this);
 
         // Get the location manager
-        // LOCATION_SERVICE is a constant in class Context (a super class of Activity)
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        // Not required.
+        // Not required. Printing providers just to see what is offered on the emulator
         // List all providers.
         List<String> providers = locationManager.getAllProviders();
         for (String provider : providers) {
             Log.i(TAG, "Provider: " + provider);
         }
 
-        Criteria criteria = new Criteria();
-        bestProvider = locationManager.getBestProvider(criteria, false);
-
         if (ContextCompat.checkSelfPermission(this,
                         Manifest.permission.ACCESS_FINE_LOCATION)
                         != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this,
+//                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
+//                    MY_PERMISSIONS_REGISTER_FOR_UPDATES);
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     MY_PERMISSIONS_REGISTER_FOR_UPDATES);
         }
         else {
             // Register for updates
             registerForUpdates();
         }
-
     }
 
     @Override
@@ -107,10 +101,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i(TAG, "Starting onClick...");
 
         if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_COARSE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED
-                ||
-                ContextCompat.checkSelfPermission(this,
                         Manifest.permission.ACCESS_FINE_LOCATION)
                         != PackageManager.PERMISSION_GRANTED) {
 //            ActivityCompat.requestPermissions(this,
@@ -139,6 +129,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             else {
                 Log.i(TAG, "location was null");
+                Toast.makeText(getApplicationContext(),
+                        "Location not available", Toast.LENGTH_LONG).show();
             }
         }
         catch(SecurityException e) {
@@ -161,9 +153,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i(TAG, "Starting onRequestPermissionResult");
         switch (requestCode) {
             case MY_PERMISSIONS_REGISTER_FOR_UPDATES:
-                Log.i(TAG, "grant results length: " + grantResults.length);
-                Log.i(TAG, "grant results [0]: " + grantResults[0]);
-                Log.i(TAG, "grant results [1]: " + grantResults[1]);
                 // Register for updates
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -197,11 +186,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void registerForUpdates() {
         try {
+            Criteria criteria = new Criteria();
+            criteria.setAccuracy(Criteria.ACCURACY_FINE);
+            bestProvider = locationManager.getBestProvider(criteria, false);
             // 20000 = minimum time interval between location updates, in milliseconds
             // 1 = minimum distance between location updates, in meters
             locationManager.requestLocationUpdates(bestProvider, 20000, 1, this);
             // OR
             //locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 20000, 1, this);
+            // OR
+            //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 20000, 1, this);
         } catch (SecurityException e) {
             Log.i(TAG, "Problem registering for updates: " + e);
         }
