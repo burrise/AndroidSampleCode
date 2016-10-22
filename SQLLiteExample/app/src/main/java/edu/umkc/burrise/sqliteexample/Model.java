@@ -35,6 +35,11 @@ public class Model {
 		return assignmentGateway.insert(courseID, assignmentName);
 	}
 
+	// Inputs:
+	//   courseID - ID of course
+	//   courseName - new name for course
+	// Throws:
+	//   Exception - if there is no existing course matching courseID
 	public void updateCourse(long courseID, String courseName) throws Exception {
 		courseGateway.update(courseID,courseName);
 	}

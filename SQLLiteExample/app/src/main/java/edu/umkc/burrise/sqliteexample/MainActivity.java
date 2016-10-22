@@ -15,7 +15,11 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
+/*
+ * This program demonstrates SQLite, a database abstraction layer,
+ * exceptions and assertions.
+ * Assertions and Exceptions are demonstrated in CourseGateway.update()
+ */
 public class MainActivity extends ActionBarActivity implements OnItemClickListener {
 
     private ArrayList<Course> courses;

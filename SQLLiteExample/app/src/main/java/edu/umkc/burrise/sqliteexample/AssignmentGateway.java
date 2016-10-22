@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class AssignmentGateway {
 	private Context context;
@@ -45,34 +46,24 @@ public class AssignmentGateway {
 	
 	public long insert(long courseID, // foreign key
 			String assignmentName) {
-		// insert record into DB and get back primary
-		// key for new record.
+		// insert record into DB
 		DatabaseHelper dbHelper = new DatabaseHelper(context);
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
 		values.put(DatabaseHelper.FIELD_COURSE, courseID);
 		values.put(DatabaseHelper.FIELD_ASSIGNMENT_NAME, assignmentName);
-		long cs490_id = db.insertOrThrow(DatabaseHelper.ASSIGNMENTS_TABLE, null, values);
+		long row_id = db.insertOrThrow(DatabaseHelper.ASSIGNMENTS_TABLE, null, values);
 
-		// Query for the value of the autoincrement field
-		String[] from = { DatabaseHelper.FIELD_ID,
-				DatabaseHelper.FIELD_COURSE,
-				DatabaseHelper.FIELD_ASSIGNMENT_NAME};
+		// Return value from INSERT statement (row_id above)
+		//   is _id value of last record inserted.
+		// Each entry in most SQLite tables (except for WITHOUT ROWID
+		// tables) has a unique 64-bit signed integer key called the
+		// "rowid". ... If the table has a column of type INTEGER
+		// PRIMARY KEY then that column is another alias for the rowid.
 
-		Cursor cursor = db.query(DatabaseHelper.ASSIGNMENTS_TABLE,
-				from,
-				DatabaseHelper.FIELD_COURSE + "=" + courseID + " AND " +
-						DatabaseHelper.FIELD_ASSIGNMENT_NAME + "= '" + assignmentName + "'",
-				null,
-				null,
-				null,
-				null);
-	
-		cursor.moveToNext();
-		long value_of_autoincrement_field = cursor.getLong(0);
 		dbHelper.close();
-		return value_of_autoincrement_field; // return the primary key created by the DB
+		return row_id; // return the primary key created by the DB
 	}
 
 	// id is primary key for record to update
