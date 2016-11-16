@@ -37,7 +37,7 @@ If you don't, I think the .gitignore file in this root directory will cause the 
 3. Open a git bash shell on the root folder
 
 4. Issue:<br/>
-   $ git add .<br/>
+   $ git add -A<br/>
    $ git commit -m 'which project add/update'<br/>
    $ git push<br/>
 
