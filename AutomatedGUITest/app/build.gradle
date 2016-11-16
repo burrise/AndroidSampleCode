@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "24.0.1"
+
+    defaultConfig {
+        applicationId "edu.umkc.burrise.automatedguitest"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        // Needed for instrumentation tests
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.0.0'
+
+    // Needed for instrumentation tests
+    // The documentation said to include this in the
+    //   top-level build.gradle file but the
+    //   junit include was already above and I
+    //   think these two dependencies go together.
+    testCompile 'org.mockito:mockito-core:1.10.19'
+
+    // Required for instrumented tests
+    // You make have to change the version below to match
+    //   the version above for appcompat-v7
+    // After you do update your .gradle file, you may
+    //   have to select Build / Clean
+    androidTestCompile 'com.android.support:support-annotations:25.0.0'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    // Set this dependency to use JUnit 4 rules
+    androidTestCompile 'com.android.support.test:rules:0.4'
+    // Set this dependency to build and run Espresso tests
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+}

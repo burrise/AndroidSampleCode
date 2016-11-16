@@ -10,7 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+// This app uses the Internet. If you
+//   copy the Internet code below, don't
+//   forget to add the following to your
+//   manifest file:
+//   <uses-permission android:name="android.permission.INTERNET" />
+
 import java.io.InputStream;
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -46,11 +53,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         protected Bitmap doInBackground(String... urls) {
-            String imageURL = urls[0];
+            String imageUrl = urls[0];
             Bitmap imageBitmap = null;
             try {
-                InputStream in = new java.net.URL(imageURL).openStream();
-                imageBitmap = BitmapFactory.decodeStream(in);
+                //InputStream in = new java.net.URL(imageURL).openStream();
+                //imageBitmap = BitmapFactory.decodeStream(in);
+                imageBitmap = BitmapFactory.decodeStream((InputStream)new URL(imageUrl).getContent());
             } catch (Exception e) {
                 Log.e("Error", e.getMessage());
                 e.printStackTrace();
