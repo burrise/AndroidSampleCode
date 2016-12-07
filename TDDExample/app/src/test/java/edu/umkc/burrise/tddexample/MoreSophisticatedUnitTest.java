@@ -38,6 +38,8 @@ public class MoreSophisticatedUnitTest {
         //   declared but don't have any behavior.
         //   Calling Log.i() would cause a "method
         //   not implemented error.
+        //Log.i("abc", "setUpBeforeClass()");
+        //Log a;
         output = new StringBuffer("setUpBeforeClass()");
     }
 

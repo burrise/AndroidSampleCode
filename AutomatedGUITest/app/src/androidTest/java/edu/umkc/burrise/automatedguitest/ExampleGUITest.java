@@ -38,5 +38,13 @@ public class ExampleGUITest {
 
         // Check that the text was changed.
         onView(withId(R.id.textLabel)).check(matches(withText("Amazing")));
+
+        // Or, you can perform all three (find component,
+        //   perform interaction, check result) with one statement:
+      /*
+        onView(withId(R.id.my_view))            // withId(R.id.my_view) is a ViewMatcher
+                .perform(click())               // click() is a ViewAction
+                .check(matches(withText("Amazing"))); // matches(isDisplayed()) is a ViewAssertion
+      */
     }
 }

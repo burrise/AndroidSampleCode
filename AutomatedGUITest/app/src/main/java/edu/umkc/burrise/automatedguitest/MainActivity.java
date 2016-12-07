@@ -5,6 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+/*
+  References for learning more about testing from the UI:
+  https://developer.android.com/training/testing/ui-testing/index.html
+    https://developer.android.com/training/testing/ui-testing/espresso-testing.html
+
+ */
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
