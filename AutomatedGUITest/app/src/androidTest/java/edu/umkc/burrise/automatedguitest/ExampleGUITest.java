@@ -28,6 +28,12 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class ExampleGUITest {
 
+    // The following is needed to launch activity under test.
+    // You don't need to reference mActivityRule
+    //   below. onView() will find UI components in active
+    //   view. The following example shows how onView()
+    //   works as the active view changes
+    // https://github.com/googlesamples/android-testing/blob/master/ui/espresso/BasicSample/app/src/androidTest/java/com/example/android/testing/espresso/BasicSample/ChangeTextBehaviorTest.java
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule(MainActivity.class);
 
